@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script src="jstut.js"></script>
+
+		<style type="text/css">
+			body {font-size: 1.6em;}
+			.hidden {display:none;}
+			.show {display:inline !important;}
+			button {
+				border: 2px; solid black; background: #E5E4E2;
+				font-size: .5em; font-weight: bold; color: black;
+				padding: .8em 2em;
+				margin-top: .4em;
+			}
+		</style>
+
+	</head>
+	<body>
+		
+	<p id="sayHello"></p>
+
+	<script>
+
+		//Looping
+		//Use this any time you want to perform a calculation a certain number of time as long as a condition is true.
+
+		var i = 1;
+
+		while(i <= 10){
+			document.write(i + "<br />");
+			i++;
+		}
+		//while i is less than or equal to 10, keep adding 1 to it. So since i = 1, it continues to add 1 to i until it equals 10, in which case the condition is no longer be true, so it'll stop running.
+
+		//use a do while loop any time you need the condition to run at least once. while loops if it isn't true to begin with, won't run. do while will say "eff it, run it at least once and see what happens"
+		do{
+			var guess = prompt("Guess a number between1 and 20");
+		}while(guess != 15)
+
+		alert("You guessed 15!");
+
+		//for loops
+		//will be 100% self-contained. instead of values being inside the loop, everything will be put inside. 
+		for(j = 0; j <= 20; j++){
+			//this is saying j = 0, as long as j is less than or equal to 20, keep incrementing it.
+			if((j % 2) === 0){
+				//this is basically checking for even numbers.
+				continue;
+				//"continue" is saying that as long as this is true, we want to stop anything that follows after "continue" in this for loop, jump back up to the beginning of the for loop where "for(j = 0; j <=20; j++)" is to increment the value of j, and then continue on with the looping structure, until it's false, in which case it'll go down to the next thing in the for loop.
+			}
+
+			if(j === 15){
+				break;
+				//again break means to just stop. in this case it'll just break and stop and go down to the next line of code in this loop
+			}
+
+			document.write(j + "<br />");
+			//this will end up only printing odd numbers, and then instead of printing all the way up to 20 like what might be expected, it will hit the "if(j === 15)" and will break out of the loop altogether since that's what we told it to do with "break"
+
+		}
+
+		//for in block
+		var customer = {name : "Bob Thomas", address : "123 Main", balance : 50.50};
+
+			for(k in customer){
+				document.write(customer[k] + "<br />");
+			}
+
+
+	</script>
+
+	</body>
+</html>
