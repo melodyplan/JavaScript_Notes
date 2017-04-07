@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script src="jstut.js"></script>
+
+		<style type="text/css">
+			body {font-size: 1.6em;}
+			.hidden {display:none;}
+			.show {display:inline !important;}
+			button {
+				border: 2px; solid black; background: #E5E4E2;
+				font-size: .5em; font-weight: bold; color: black;
+				padding: .8em 2em;
+				margin-top: .4em;
+			}
+		</style>
+
+	</head>
+	<body>
+		
+	<p id="sayHello"></p>
+
+	<script>
+
+		//Conditionals
+
+		//Relational Operators : == != > < >= <=
+		//different ways to compare or execute operators: == (equal to), != (not equal to) >  (greater than), < (less than), >= (greater than or equal to), <= (less than or equal to).
+		// == means that the value of the variable is equal
+		// === means the value AND the type of variable is equal, so for the most part, use ===
+		
+		//Logical Operators : && || !
+		//&& (and), || or, ! not
+
+		var age = 8;
+
+		if((age >= 5) && (age <= 6)){
+			document.write("Go to kindergarten" + "<br />");
+		} else if (age > 18) {
+			document.write("Go to college" + "<br />");
+		} else {
+			document.write("Go to grade ", age - 5, "<br />");
+		}
+		//depending on the integer you input for variable age, the output will change. =)
+
+		document.write("true || false ", true || false, "<br />");
+		//will return true if either the "true" value or "false" value is true. so for this one, it returns true, because there is one true in here.
+		document.write("!true ", !true, "<br />");
+		//!true converts the trues into falses and the falses into trues. "!" means "not". So logically !true is literally saying "not true" and !false is literally saying "not false." so !true = false and !false = true
+
+		document.write("\"5\" == 5 = ", ("5" == 5), "<br />");
+		//returns true even though the value is equal, even though the types aren't.
+		document.write("\"5\" === 5 = ", ("5" === 5), "<br />");
+		//returns false because the value is equal and the type is not equal, and both have to be true for === to be true.
+
+
+		//Switch Statements
+		//You use siwtch statements when you have a limited number of potential options for a value.
+
+		var age = 5;
+
+		switch(age) {
+			case 6 :
+			//case meanse "in case"
+				document.write("Go to kindergarten" + "<br />");
+				break;
+				//you use break when you don't want to type in any other values. 
+		}
+
+
+
+		
+
+	</script>
+
+	</body>
+</html>

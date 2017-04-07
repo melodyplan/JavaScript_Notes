@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script src="jstut.js"></script>
+
+		<style type="text/css">
+			body {font-size: 1.6em;}
+			.hidden {display:none;}
+			.show {display:inline !important;}
+			button {
+				border: 2px; solid black; background: #E5E4E2;
+				font-size: .5em; font-weight: bold; color: black;
+				padding: .8em 2em;
+				margin-top: .4em;
+			}
+		</style>
+
+	</head>
+	<body>
+		
+	<p id="sayHello"></p>
+
+	<script>
+
+	document.write("5 + 4 = ", 5 + 4, "<br />");
+	document.write("5 - 4 = ", 5 - 4, "<br />");
+	document.write("5 * 4 = ", 5 * 4, "<br />");
+	document.write("5 / 4 = ", 5 / 4, "<br />");
+	document.write("5 % 4 = ", 5 % 4, "<br />");
+
+	document.write("Max Num = ", Number.MAX_VALUE, "<br />");
+	document.write("Min Num = ", Number.MIN_VALUE, "<br />");
+
+	precisionTest = 0.1000000000000001;
+	document.write(precisionTest + 0.1000000000000001, "<br />");
+	/* anytime you go over 16 digits in your decimal values, your math 
+	will get messed up, so be careful. this is true to basically every
+	programming language. */
+
+	//let's say you have a balance for your store:
+	var balance = 1563.87;
+	document.write("Monthly Payment: ", (balance / 12).toFixed(2), "<br />");
+	//.toFixed() filters the solution to the decimal point amount you want. so for example in above, it says "2" so to answer will round to 130.32 instead of the full answer, 130.3225
+
+	var randNum = 5;
+
+	document.write("randNum++ = ", randNum++, "<br />");
+	//the above prints out the random number and THEN increments it.
+	document.write("++randNum = ", ++randNum, "<br />");
+	//the above increments the value of randNum and then prints it.
+
+	document.write("randNum-- = ", randNum--, "<br />");
+	document.write("--randNum = ", --randNum, "<br />");
+	/*the two above work similarly to the first example with ++, except
+	it subtracts*/
+
+	document.write("randNum += 5", randNum += 5, "<br />");
+	//adds 5 to the random number and stores the calculation back into random number
+
+	document.write("randNum -= 5", randNum -= 5, "<br />");
+	document.write("randNum *= 5", randNum *= 5, "<br />");
+	document.write("randNum /= 5", randNum /= 5, "<br />");
+
+	//PEMDAS
+	document.write("3 + 2 * 5 = ", 3 + 2 * 5, "<br />");
+	//the result of above is 13.
+	document.write("(3 + 2) * 5 = ", (3 + 2) * 5, "<br />");
+	//JS pays attention to PEMDAS so the result of this is 25.
+
+	document.write("Math.E = ", Math.E, "<br />");
+	//prints the value of the numerical constant E
+	document.write("Math.PI = ", Math.PI, "<br />");
+	//prints the value of pi
+
+	document.write("Math.abs(-8) = ", Math.abs(-8), "<br />");
+	//absolute value
+	document.write("Math.cbrt(1000) = ", Math.cbrt(1000), "<br />");
+	//cube root
+	document.write("Math.ceil(6.45) = ", Math.ceil(6.45), "<br />");
+	//a rounding to the ceiling (round up)
+	document.write("Math.floor(6.45) = ", Math.floor(6.45), "<br />");
+	//round to the floor (round down)
+	document.write("Math.round(6.45) = ", Math.round(6.45), "<br />");
+	//a standard round (so if it's above .5 round up, below .5 round down)
+	document.write("Math.log(10) = ", Math.log(10), "<br />");
+	//natural logarithm
+	document.write("Math.log10(10) = ", Math.log10(10), "<br />");
+	//logarithm to the base of 10
+	document.write("Math.max(10,5) = ", Math.max(10,5), "<br />");
+	//maximum value of what is passed in
+	document.write("Math.min(10,5) = ", Math.min(10,5), "<br />");
+	//minimum value of what is passed in
+	document.write("Math.pow(4,2) = ", Math.pow(4,2), "<br />");
+	//calculate the power
+	document.write("Math.sqrt(1000) = ", Math.sqrt(1000), "<br />");
+	//calculate the square root
+
+	document.write("Random # (1-10) = ", Math.floor((Math.random(
+		) * 10) + 1), "<br />");
+	//random number generator! Math.floor is saying for it to round down the value passed through it, in this case Math.random, which is multipled by 10 because we want it to be a value up to 10, and then since we want to start at 1 (because by default it starts at 0), we add 1 to it.
+
+	//How to convert strings into numbers and vice versa:
+	document.write("Converted String : ", Number("3.14"), "<br />");
+	//convert a string into a number
+	document.write("Converted Int : ", parseInt("5"), "<br />");
+	//convert a string into an int
+	document.write("Converted Float : ", parseFloat("3.14"), "<br />");
+
+
+
+	</script>
+
+	</body>
+</html>
