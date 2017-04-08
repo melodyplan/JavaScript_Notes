@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script src="jstut.js"></script>
+
+		<style type="text/css">
+			body {font-size: 1.6em;}
+			.hidden {display:none;}
+			.show {display:inline !important;}
+			button {
+				border: 2px; solid black; background: #E5E4E2;
+				font-size: .5em; font-weight: bold; color: black;
+				padding: .8em 2em;
+				margin-top: .4em;
+			}
+		</style>
+
+	</head>
+	<body>
+		
+	<p id="sayHello"></p>
+
+	<script>
+
+		function openAlert(message) {
+			alert(message);
+		}
+
+		//a place to see all the other events you can do: http://www.w3schools.com/jsref/dom_obj_event.asp
+
+
+
+	</script>
+
+	<a href="JavaScript:void(0)" onClick="alert('Hello');">Say Hello</a><br />
+	<!--execute code inside of html. "JavaScript:void(0)" prevents the page from refreshing when this particular link/function click command happens-->
+
+	<a href="JavaScript:void(0)" onClick="openAlert('Hi how are you');">Say Something</a><br />
+	<!--this one performs a similar task as the first example with the onCLick="alert();" but instead of it being in-line, it's call the functon openAlert which was made in the script tags-->
+
+	<a href="JavaScript:void(0)" 
+	onmouseover="this.style.color='red';"
+	onmouseout="this.style.color='blue'"
+	ondblclick="this.text='You double clicked me'"
+	onmousedown="this.text='Don\'t press to hard'"
+	onmouseup="this.text='Thank you'">Make me Red</a><br />
+	<!--pretty self-explanatory, onmousedown is when you hold down the mouse over the link. onmouseup is what is left when you let go of the mouse.-->
+
+	<input type="text" id="randInput"
+	onChange="var dataEntered=document.getElementById('randInput').value;
+	alert('User Typed ' + dataEntered)">
+	<!--makes a little input box where the user can type things in, and on leaving, will alert to what was typed in the box; id is the name you are giving the input-->
+
+	<form action="#" id="sampForm">
+
+		<input id="charInput" type="text">
+
+		<p id="keyData">Key Data Here</p>
+
+		<input type="submit" value="Submit">
+		<input type="reset" value="Submit">
+
+	</form><br />
+
+	<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR1wT0RfdellsdIDYEc-MA_T7nI1WV67K-6XRVYPYEn4H0l2bxXy4ZB_pI" id="logo">
+
+	<button id="logoButton">Get Logo</button><br />
+
+	<input id="mouseInput" type="text" size="30"><br />
+
+	Mouse X:  <input type="text" id="mouseX"><br />
+	Mouse Y:  <input type="text" id="mouseY"><br />
+
+	<!--Always good practice to have your script tag beneath your html-->
+
+	<script>
+
+		function getChar(event){
+			if(event.which == null) {
+			//event.which returns the key or the mouse button that was cicked. and we have it equal to null to make sure that it has a value, and if it doesn't a value (meaning if event.which == null is true) then we're having it return the following:
+				return String.fromCharCode(event.keyCode);
+				//handling for internet explorer
+			} else if (event.which != 0 && event.charCode != 0){
+			//if event.which does not equal 0 and event.charCode does not equal 0, then:
+				return String.fromCharCode(event.which);
+				//handling for all ther browsers
+			} else {
+				return null;
+				//handling for some other character or key we can't work with
+			}
+		}
+
+		document.getElementById('charInput').onkeypress =
+			function(event){
+				var char = getChar(event || window.event)
+				if(!char) return false;
+
+				document.getElementById("keyData").innerHTML = char + " was clicked";
+				return true;
+			}
+
+		document.getElementById('charInput').onfocus = function(event){
+			//.onfocus is whenever someone clicks into a thing, in this case, the charInput
+			document.getElementById('keyData').innerHTML = "Input Gained Focus";
+		}
+
+		//catch if user selected any text using .onselect:
+		document.getElementById('charInput').onselect = function(event){
+			document.getElementById('keyData').innerHTML = "Text Selected";
+		}
+		//so the above function has it so when text in charInput is selected, it'll tell us.
+
+		document.getElementById('logoButton').onClick = function(event){
+			document.getElementById('logo').className = "show";
+		}
+
+		document.getElementById('logo').onClick = function(event){
+			document.getElementById('logo').className = "hidden";
+		}
+		//in terms of the top two functions, this basically makes it so that when a user clicks the Get Logo button, it'll show the image, and when someone clicks the logo, the logo will hide. This is possible because of the CSS in lines 9 and 10 above (or if it's linked from a separate page in script).
+
+		document.getElementById('logo').onmouseover = function(event){
+			document.getElementById('logo').src = "http://somanybears.com/wp-content/uploads/2013/10/pink-logo-f9a26fcc82c561f925403822c5135a28.png";
+			//this changes the image to something else on mouseover
+			document.getElementById('mouseInput').value = "Mouse Over Image";
+			//this is targeting/changing the value here
+		}
+
+		document.getElementById('logo').onmouseout = function(event){
+			document.getElementById('logo').src = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR1wT0RfdellsdIDYEc-MA_T7nI1WV67K-6XRVYPYEn4H0l2bxXy4ZB_pI";
+			//changes something when the mouse gets off the logo/src
+			document.getElementById('mouseInput').value = "Mouse Left Image";
+			//now it says "Mouse Left Image" when the mouse leaves the logo.
+		}
+
+//tracking the mouse movement relative to the html on the page
+document.body.onmousemove = function(e){
+
+	e = e || window.event;
+
+	var pageX = e.pageX;
+	var pageY = e.pageY;
+
+	if (pageX === undefined){
+		pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+
+	}
+}
+
+
+
+	</script>
+
+	</body>
+</html>
