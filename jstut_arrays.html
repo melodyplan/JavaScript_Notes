@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script src="jstut.js"></script>
+
+		<style type="text/css">
+			body {font-size: 1.6em;}
+			.hidden {display:none;}
+			.show {display:inline !important;}
+			button {
+				border: 2px; solid black; background: #E5E4E2;
+				font-size: .5em; font-weight: bold; color: black;
+				padding: .8em 2em;
+				margin-top: .4em;
+			}
+		</style>
+
+	</head>
+	<body>
+		
+	<p id="sayHello"></p>
+
+	<script>
+
+		var tomSmith = ["Tom Smith", "123 Main", 120.50];
+
+		document.write("1st Index ", tomSmith[0], "<br />");
+		//for indexes in array, think of them as boxes inside of boxes. every time there is a comma to separata, think of that as one box. so Tom Smith is one box, 123 Main is one box, 120.50 is one box. Tom Smith is Index 0, 123 Main is index 1, 120.50 is index of 2, etc.
+
+		tomSmith[3] = "tSmith@aol.com";
+		//this is to add to the array, you just put the variable name, and then the index number, followed by the object you want to assign to it.
+
+		tomSmith.splice(2, 1, "Pittsburg", "PA");
+		//this is saying you only want to overwrite index 2 and fit everything else after index 2 without overwriting. the first value in the parameter "2" is saying for splice to start at index 2 and overwrite index 2, or just index 2. the following stuff is the data pieces you want to replace index 2 with.
+
+		tomSmith.splice(4, 1);
+		//choosing index 4 and deleting one thing (in this case, just index 4)
+
+		//converting an array into a string.
+		document.write("Array : ", tomSmith.valueOf(), "<br />");
+
+		document.write("Array : ", tomSmith.join(", "), "<br />");
+		//the above is saying we wait to put a comma and a space between each little part of the array that we're joining, another method to convert the array into a string.
+
+		//deleting an index:
+		delete tomSmith[3];
+
+		//sorting
+		tomSmith.sort();
+		//but this is based off alphabet or letters
+
+		//if you want to sort by numbers:
+		var numbers = [4, 3, 9, 1, 20, 43];
+
+		numbers.sort(function(x,y){return x - y });
+		//this is basically saying starting with one, it will sort by everything that comes thereafter (ascending order).
+
+		numbers.sort(function(x,y){return y - x });
+		//this is sorting in descending order, the return decides how the value is seen compared to each other.
+
+		document.write("Num Array : ", numbers.toString(), "<br />");
+		//so we can see that sorting above as a string.
+
+		var combinedArray = numbers.concat(tomSmith);
+		//concat, short for concatenate, it is also joining.
+
+		tomSmith.pop();
+		//removes last item. think of "popping off the last item in the array"
+
+		tomSmith.push("555-1212", "US");
+		//pushes an item into the end of the array, think of it like Github pushing to commit.
+
+		tomSmith.shift();
+		//delete first time in array
+
+		tomSmith.unshift("Tom Smith");
+		//add items to the very beginning of the array
+
+		//to cycle through all these items, try a for loop:
+		for(i = 0; i < tomSmith.length; i++){
+			//this is saying while there are items to work with, cycle through the array. index start at 0, as long as we haven't reached the end of the length of tomSmith, keeping moving up the index by one (or increment through).
+			document.write("tomSmith[i]", "<br />");
+			//this is saying to print out all the items in the array as long as the for loop is true, so in this case it'll print through everything until the end of the array of tomSmith.
+		}
+
+
+
+
+	</script>
+
+	</body>
+</html>
