@@ -72,6 +72,8 @@
 	Mouse X:  <input type="text" id="mouseX"><br />
 	Mouse Y:  <input type="text" id="mouseY"><br />
 
+	<button id="clearInputs">Clear Inputs</button>
+
 	<!--Always good practice to have your script tag beneath your html-->
 
 	<script>
@@ -144,7 +146,25 @@ document.body.onmousemove = function(e){
 
 	if (pageX === undefined){
 		pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+		pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+	}
 
+	document.getElementById('mouseX').value = pageX;
+	document.getElementById('mouseY').value = pageY;
+
+};
+
+//clear all text inputs.
+document.getElementById('clearInputs').onClick = function(event) {
+	var inputElements = document.getElementsByTagName('input');
+
+	for(var i = 0; i < inputElements.length; i++) {
+	//want to cycle through all the input elements
+		if(inputElements[i].type == "text") {
+		//if the input elements array has text in it...
+			inputElements[i].value = "";
+			//clear it.
+		}
 	}
 }
 
