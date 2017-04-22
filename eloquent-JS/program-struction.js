@@ -31,3 +31,22 @@ it works!! it logs:
 #######
 
 just like it's supposed to yaaaay*/
+
+/* the below is supposed to go through 1-100 and say Fizz/Buzz/FizzBuzz 
+respectively depending on what it's divisible by. Why does it not work? =( */
+
+for (var number = 0; number <= 100; number++) {
+  console.log(number);
+  if (number = number % 3 == 0)
+    console.log("Fizz");
+  else if (number = number % 5 == 0)
+    console.log("Buzz");
+ else (number = number % 3 == 0|| number % 5 == 0)
+    console.log("FizzBuzz");
+    break;
+}
+/*if
+else if
+else*/
+
+console.log("Hello")
