@@ -36,17 +36,33 @@ just like it's supposed to yaaaay*/
 respectively depending on what it's divisible by. Why does it not work? =( */
 
 for (var number = 0; number <= 100; number++) {
-  console.log(number);
-  if (number = number % 3 == 0)
-    console.log("Fizz");
-  else if (number = number % 5 == 0)
-    console.log("Buzz");
- else (number = number % 3 == 0|| number % 5 == 0)
-    console.log("FizzBuzz");
+  if (number % 3 == 0) {
+    console.log(number + "Fizz");
+  } else if (number % 5 == 0) {
+    console.log(number + "Buzz");
+  } else if (number % 3 == 0|| number % 5 == 0) {
+    console.log(number + "FizzBuzz");
+  } else {
+    console.log(number);
     break;
+  }
 }
 /*if
 else if
 else*/
 
 console.log("Hello")
+
+//what works! =D
+
+for (var number = 0; number <= 100; number++) {
+  if (number % 3 === 0 && number % 5 === 0 ) {
+    console.log(number + " FizzBuzz");
+  } else if (number % 5 === 0) {
+    console.log(number + " Buzz");
+  } else if (number % 3 === 0) {
+    console.log(number + " Fizz");
+  } else {
+    console.log(number);
+  }
+}
